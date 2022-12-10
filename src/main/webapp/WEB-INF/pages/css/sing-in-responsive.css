@@ -1,0 +1,33 @@
+@media (max-width: 1475px) {
+    .content{
+        width: 80vw;
+    }
+    .image-box{
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .content{
+        margin-top: 130px;
+        width: 80vw;
+    }
+    .image-box{
+        width: auto;
+        min-height: 100vh;
+        height: 100vh;
+    }
+    .sign-in-container{
+        margin-top: 130px;
+    }
+}
+@media (max-width: 600px) {
+    .content{
+        padding: 5px;
+    }
+    .sign-in-container{
+        width: 90%;
+    }
+
+}
