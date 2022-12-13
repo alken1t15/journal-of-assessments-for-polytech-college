@@ -1,0 +1,2576 @@
+CREATE TABLE Users (
+  username VARCHAR(15),
+  password VARCHAR(100),
+  enabled INTEGER,
+  PRIMARY KEY (username)
+) ;
+
+CREATE TABLE Authorities (
+  username VARCHAR(15),
+  authority VARCHAR(25),
+  FOREIGN KEY (username) REFERENCES Users(username)
+) ;
+
+INSERT INTO Users (username, password, enabled)
+VALUES
+    ('denis544', 'denis544', 1),
+    ('oleg544', 'oleg544', 1),
+    ('tatyana544', 'tatyana54', 1),
+	('balzhan5423', 'balzhan5423', 1),
+	('leila04', 'leila04', 1),
+	('tamerlan04', 'tamerlan04', 1),
+	('zhanat04', 'zhanat04', 1),
+	('ayna04', 'ayna04', 1),
+	('aldiyar04', 'aldiyar04', 1),
+	('regina04', 'regina04', 1),
+	('nikita04', 'nikita04', 1),
+	('artem04', 'artem04', 1),
+	('timur04', 'timur04', 1),
+	('kramzos04', 'kramzos04', 1);
+
+INSERT INTO Authorities (username, authority)
+VALUES
+    ('denis544', 'ROLE_TEACHER'),
+    ('oleg544', 'ROLE_TEACHER'),
+    ('tatyana544', 'ROLE_TEACHER'),
+	('balzhan5423', 'ROLE_TEACHER'),
+	('leila04', 'ROLE_STUDENT'),
+	('tamerlan04', 'ROLE_STUDENT'),
+	('zhanat04', 'ROLE_STUDENT'),
+	('ayna04', 'ROLE_STUDENT'),
+	('aldiyar04', 'ROLE_STUDENT'),
+	('regina04', 'ROLE_STUDENT'),
+	('nikita04', 'ROLE_STUDENT'),
+	('artem04', 'ROLE_STUDENT'),
+	('timur04', 'ROLE_STUDENT'),
+	('kramzos04', 'ROLE_STUDENT');
+
+CREATE TABLE People(
+    id SERIAL NOT NULL,
+    teacher VARCHAR(25) NOT NULL,
+    group_name VARCHAR(25) NOT NULL,
+    username VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    middle_name VARCHAR(25)  ,
+    last_name VARCHAR(25) NOT NULL,
+    birth VARCHAR(25) NOT NULL,
+    gender VARCHAR(25) NOT NULL,
+    age INTEGER NOT NULL,
+    nationality VARCHAR(25) NOT NULL,
+    phone VARCHAR(25) NOT NULL,
+    address VARCHAR(50) NOT NULL,
+    iin VARCHAR(12) NOT NULL,
+    certificates VARCHAR(100),
+    hobby VARCHAR(100),
+    social_status VARCHAR(30),
+    work_place VARCHAR(50),
+    name_img VARCHAR(50) NOT NULL,
+    primary key (id)
+);
+-- Учителя
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin,name_img)
+VALUES
+	('balzhan5423','П-20-51б','balzhan5423','Балжан','Оразбековна','Мурсалим','12.12.1987','Женский',35,'Казашка','87471676344','ул Мира56','763463863176','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin,name_img)
+VALUES
+	('tatyana544','П-20-51б','tatyana544','Татьяна',' ','Стасишина','12.12.1990','Женский',32,'Казашка','87471676344','ул Мира56','763463863176','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin,name_img)
+VALUES
+	('oleg544','П-20-51б','oleg544','Олег','Николаевич','Пешкин','12.12.1983','Мужской',40,'Русский','87471676344','ул Абая54','763463863176','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin,name_img)
+VALUES
+	('denis544','П-20-51б','denis544','Денис','Валентинович','Попов','12.12.1991','Мужской',30,'Русский','87471676344','ул Республика54','763463863765','avator.png');
+
+-- Студенты
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','leila04','Лейла','Буркутовна','Абдрахманова','12.12.2004','Женский',18,'Казашка','88761564333','ул Мира43','045363773166','МВД РК','Рисование','Полная','Нет','avator.png');
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','tamerlan04','Тамерлан','Асхатулы','Алиманов','14.05.2004','Женский',18,'Казах','88761544343','ул Абая54','045363433166','МВД РК','Баскетбол','Полная','Нет','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','zhanat04','Жанат','Мейрамович','Альмекенов','14.05.2004','Мужской',18,'Казах','88761544343','ул Победа23','045563433166','МВД РК','Футбол','Полная','Нет','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','ayna04','Аяна',' ','Арманкызы','25.08.2004','Женский',18,'Казашка','88761544343','ул Победа23','045563433166','МВД РК','Рисовать','Не полная','Нет','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','aldiyar04','Алдияр','Еркинович','Ахметов','25.04.2004','Мужской',18,'Казах','88761547634','ул Сейфуллина65','045563434566','МВД РК','Смотреть филмы','Полная','Нет','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','regina04','Регина','Яковлена','Брик','14.06.2005','Женский',17,'Казашка','88761543334','ул Сейфуллина23','045563884566','МВД РК','Смотреть аниме','Полная','Да','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','nikita04','Никита','Александрович','Василенко','10.04.2004','Мужской',18,'Казах','88761543366','ул Космонавтов55','045563884565','МВД РК','Бальные танцы','Полная','Да','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','artem04','Артем','Владимирович','Голев','15.04.2004','Мужской',18,'Немец','88761543343','ул Аблайхана22','045543884565','МВД РК','Поет','Полная','Да','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','timur04','Тимур','Вячеславович','Горбенко','23.04.2004','Мужской',18,'Русский','88766543343','ул Аблайхана26','045543884565','МВД РК','Танцует','Полная','Да','avator.png');
+
+INSERT INTO people(teacher,group_name,username,first_name, middle_name, last_name, birth, gender, age, nationality, phone, address, iin, certificates, hobby, social_status, work_place,name_img)
+VALUES
+	('balzhan5423','П-20-51б','kramzos04','Максим','Игоревич','Кораблев','12.12.2004','Мужской',18,'Русский','87471654333','ул Республика24','045363863143','МВД РК','Дота2','Полная','Нет','maxsimImg.jpg');
+
+
+-- Семестровые оценки
+create TABLE SemesterAssessment(
+    id SERIAL NOT NULL,
+    Teacher VARCHAR(25) NOT NULL,
+    Student VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    middle_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    group_name VARCHAR(25) NOT NULL,
+    item_name VARCHAR(25) NOT NULL,
+    semester VARCHAR(3) NOT NULL,
+    monthly_estimate VARCHAR(5),
+    credit_work VARCHAR(5),
+    semester_result VARCHAR(5),
+    primary key (id)
+);
+-- Лейла
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','2');
+
+-- Тамерлан
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','2');
+
+-- Жанат
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','2');
+
+-- Аяна
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','2');
+
+-- Алдияр
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','aldiyar04','Алдияр','Еркинович','Ахметов','П-20-51б','Веб программир-е','2');
+
+-- Регина
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','regina04','Регина','Яковлена','Брик','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','regina04','Регина','Яковлена','Брик','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','regina04','Регина','Яковлена','Брик','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','regina04','Регина','Яковлена','Брик','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','regina04','Регина','Яковлена','Брик','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','regina04','Регина','Яковлена','Брик','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','regina04','Регина','Яковлена','Брик','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','regina04','Регина','Яковлена','Брик','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','regina04','Регина','Яковлена','Брик','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','regina04','Регина','Яковлена','Брик','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','regina04','Регина','Яковлена','Брик','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','regina04','Регина','Яковлена','Брик','П-20-51б','Веб программир-е','2');
+
+-- Никита
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','nikita04','Никита','Александрович','Василенко','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','nikita04','Никита','Александрович','Василенко','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','nikita04','Никита','Александрович','Василенко','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','nikita04','Никита','Александрович','Василенко','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','nikita04','Никита','Александрович','Василенко','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','nikita04','Никита','Александрович','Василенко','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','nikita04','Никита','Александрович','Василенко','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','nikita04','Никита','Александрович','Василенко','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','nikita04','Никита','Александрович','Василенко','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','nikita04','Никита','Александрович','Василенко','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','nikita04','Никита','Александрович','Василенко','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','nikita04','Никита','Александрович','Василенко','П-20-51б','Веб программир-е','2');
+
+-- Артем
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','artem04','Артем','Владимирович','Голев','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','artem04','Артем','Владимирович','Голев','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','artem04','Артем','Владимирович','Голев','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','artem04','Артем','Владимирович','Голев','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','artem04','Артем','Владимирович','Голев','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','artem04','Артем','Владимирович','Голев','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','artem04','Артем','Владимирович','Голев','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','artem04','Артем','Владимирович','Голев','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','artem04','Артем','Владимирович','Голев','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','artem04','Артем','Владимирович','Голев','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','artem04','Артем','Владимирович','Голев','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','artem04','Артем','Владимирович','Голев','П-20-51б','Веб программир-е','2');
+
+-- Тимур
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','timur04','Тимур','Вячеславович','Горбенко','П-20-51б','Веб программир-е','2');
+
+-- Максим
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','2');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','1');
+
+INSERT INTO  semesterassessment(teacher, student, first_name, middle_name, last_name, group_name, item_name,semester)
+VALUES ('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','2');
+
+-- Справки
+create TABLE Reference(
+    id SERIAL NOT NULL,
+    teacher VARCHAR(25) NOT NULL,
+    student VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    middle_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    group_name VARCHAR(25) NOT NULL,
+    name_file VARCHAR(60) NOT NULL,
+    PRIMARY KEY (id)
+);
+-- INSERT INTO  reference(teacher, student, first_name, middle_name, last_name, group_name, name_file)
+-- VALUES ('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных');
+
+
+-- Месяц
+create TABLE Calendar(
+    id SERIAL NOT NULL,
+    Teacher VARCHAR(25) NOT NULL,
+    Student VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    middle_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    group_name VARCHAR(25) NOT NULL,
+    item_name VARCHAR(25) NOT NULL,
+    month VARCHAR(25) NOT NULL,
+    days VARCHAR(5) NOT NULL,
+    day1 VARCHAR(5),
+    day2 VARCHAR(5),
+    day3 VARCHAR(5),
+    day4 VARCHAR(5),
+    day5 VARCHAR(5),
+    day6 VARCHAR(5),
+    day7 VARCHAR(5),
+    day8 VARCHAR(5),
+    day9 VARCHAR(5),
+    day10 VARCHAR(5),
+    day11 VARCHAR(5),
+    day12 VARCHAR(5),
+    day13 VARCHAR(5),
+    day14 VARCHAR(5),
+    day15 VARCHAR(5),
+    day16 VARCHAR(5),
+    day17 VARCHAR(5),
+    day18 VARCHAR(5),
+    day19 VARCHAR(5),
+    day20 VARCHAR(5),
+    day21 VARCHAR(5),
+    day22 VARCHAR(5),
+    day23 VARCHAR(5),
+    day24 VARCHAR(5),
+    day25 VARCHAR(5),
+    day26 VARCHAR(5),
+    day27 VARCHAR(5),
+    day28 VARCHAR(5),
+    day29 VARCHAR(5),
+    day30 VARCHAR(5),
+    day31 VARCHAR(5),
+    result VARCHAR(5),
+    PRIMARY KEY (id)
+);
+
+-- Лейла
+-- Сентябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Июнь','30');
+
+
+
+-- Тамерлан
+-- Сентябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Июнь','30');
+
+
+-- Жанат
+-- Сентябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Июнь','30');
+
+
+-- Аяна
+-- Сентябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Июнь','30');
+
+
+
+-- Максим
+-- Сентябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendar(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Июнь','30');
+
+
+-- Месяц Пропуски
+create TABLE CalendarPass(
+    id SERIAL NOT NULL,
+    Teacher VARCHAR(25) NOT NULL,
+    Student VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    middle_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    group_name VARCHAR(25) NOT NULL,
+    item_name VARCHAR(25) NOT NULL,
+    month VARCHAR(25) NOT NULL,
+    days VARCHAR(5) NOT NULL,
+    day1 VARCHAR(5),
+    day2 VARCHAR(5),
+    day3 VARCHAR(5),
+    day4 VARCHAR(5),
+    day5 VARCHAR(5),
+    day6 VARCHAR(5),
+    day7 VARCHAR(5),
+    day8 VARCHAR(5),
+    day9 VARCHAR(5),
+    day10 VARCHAR(5),
+    day11 VARCHAR(5),
+    day12 VARCHAR(5),
+    day13 VARCHAR(5),
+    day14 VARCHAR(5),
+    day15 VARCHAR(5),
+    day16 VARCHAR(5),
+    day17 VARCHAR(5),
+    day18 VARCHAR(5),
+    day19 VARCHAR(5),
+    day20 VARCHAR(5),
+    day21 VARCHAR(5),
+    day22 VARCHAR(5),
+    day23 VARCHAR(5),
+    day24 VARCHAR(5),
+    day25 VARCHAR(5),
+    day26 VARCHAR(5),
+    day27 VARCHAR(5),
+    day28 VARCHAR(5),
+    day29 VARCHAR(5),
+    day30 VARCHAR(5),
+    day31 VARCHAR(5),
+    result VARCHAR(5),
+    PRIMARY KEY (id)
+);
+
+
+-- Лейла
+-- Сентябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','leila04','Лейла','Буркутовна','Абдрахманова','П-20-51б','Веб программир-е','Июнь','30');
+
+
+
+-- Тамерлан
+-- Сентябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','tamerlan04','Тамерлан','Асхатулы','Алиманов','П-20-51б','Веб программир-е','Июнь','30');
+
+
+-- Жанат
+-- Сентябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','zhanat04','Жанат','Мейрамович','Альмекенов','П-20-51б','Веб программир-е','Июнь','30');
+
+
+-- Аяна
+-- Сентябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','ayna04','Аяна',' ','Арманкызы','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','ayna04','Аяна',' ','Арманкызы','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','ayna04','Аяна',' ','Арманкызы','П-20-51б','Веб программир-е','Июнь','30');
+
+
+
+-- Максим
+-- Сентябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Сентябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Сентябрь','30');
+-- Октябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Октябрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Октябрь','31');
+-- Ноябрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Ноябрь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Ноябрь','30');
+-- Декабрь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Декабрь','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Декабрь','31');
+-- Январь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Январь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Январь','30');
+-- Февраль
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Февраль','28');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Февраль','28');
+-- Март
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Март','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Март','31');
+-- Апрель
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Апрель','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Апрель','30');
+-- Май
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Май','31');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Май','31');
+-- Июнь
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ООП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','АИП','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('balzhan5423','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','База Данных','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('tatyana544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','ТРПО','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('oleg544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Программир-е м','Июнь','30');
+INSERT INTO calendarpass(teacher, student, first_name, middle_name, last_name, group_name, item_name,month,days)
+VALUES
+	('denis544','kramzos04','Максим','Игоревич','Кораблев','П-20-51б','Веб программир-е','Июнь','30');
+
+-- преподователи
+CREATE TABLE Teachers(
+    id SERIAL NOT NULL,
+    teacher VARCHAR(25) NOT NULL,
+    first_name VARCHAR(25) NOT NULL,
+    middle_name VARCHAR(25) NOT NULL,
+    last_name VARCHAR(25) NOT NULL,
+    item_name VARCHAR(25) NOT NULL,
+    audience VARCHAR(25) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+INSERT INTO teachers (teacher ,first_name, middle_name, last_name, item_name, audience) VALUES ('balzhan5423','Балжан','Оразбековна','Мурсалим','АиП','1408');
+INSERT INTO teachers (teacher ,first_name, middle_name, last_name, item_name, audience) VALUES ('balzhan5423','Балжан','Оразбековна','Мурсалим','База Данных','1408');
+INSERT INTO teachers (teacher ,first_name, middle_name, last_name, item_name, audience) VALUES ('balzhan5423','Балжан','Оразбековна','Мурсалим','ООП','1408');
+INSERT INTO teachers (teacher ,first_name, middle_name, last_name, item_name, audience) VALUES ('tatyana544','Татьяна',' ','Стасишина','ТРПО','1314');
+INSERT INTO teachers (teacher ,first_name, middle_name, last_name, item_name, audience) VALUES ('oleg544','Олег','Николаевич','Пешкин','Программир-е м','1409');
+INSERT INTO teachers (teacher ,first_name, middle_name, last_name, item_name, audience) VALUES ('denis544','Денис','Валентинович','Попов','Веб программир-е','3209');
